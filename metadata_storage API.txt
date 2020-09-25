@@ -1,0 +1,71 @@
+Functionality: 	Create device
+Url: 			http://localhost:8081/api/devices
+Method:			POST
+Headers: 		Content-Type: application/json
+Body:			{
+					"deviceID": "test_device_4",
+					"context": "@prefix iotpex: <http://inter-iot.eu/GOIoTP#> . @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . @prefix sosa: <http://www.w3.org/ns/sosa/> . @prefix act: <http://www.semanticweb.org/activage/ontologies/2018/4/activage-core#> . <Device/1_1> a iotpex:IoTDevice ; rdfs:label \"Fibaro motion sensor\"@en ; sosa:hosts <Sensor/1_1> ; sosa:hosts <Sensor/1_2> ; sosa:hosts <Sensor/1_3> . <Sensor/1_1 > a act:IlluminanceSensor . <Sensor/1_2 > a act:TemperatureSensor . <Sensor/1_3 > a act:UserOccupancySensor ."
+				}
+				
+*The context field should contain the semantic description of the device
+***************************************************************************************
+Functionality: 	List all devices
+Url: 			http://localhost:8081/api/devices
+Method:			GET
+***************************************************************************************
+Functionality: 	Get device by id
+Url: 			http://localhost:8081/api/devices/{device_id}
+Method:			GET
+***************************************************************************************
+Functionality: 	Update device
+Url: 			http://localhost:8081/api/devices
+Method:			PUT
+Headers: 		Content-Type: application/json
+Body:			{
+					"deviceID": "test_device_4",
+					"context": "@prefix iotpex: <http://inter-iot.eu/GOIoTP#> . @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . @prefix sosa: <http://www.w3.org/ns/sosa/> . @prefix act: <http://www.semanticweb.org/activage/ontologies/2018/4/activage-core#> . <Device/1_1> a iotpex:IoTDevice ; rdfs:label \"Fibaro motion sensor\"@en ; sosa:hosts <Sensor/1_1> ; sosa:hosts <Sensor/1_2> ; sosa:hosts <Sensor/1_3> . <Sensor/1_1 > a act:IlluminanceSensor . <Sensor/1_2 > a act:TemperatureSensor . <Sensor/1_3 > a act:UserOccupancySensor ."
+				}
+*This service finds the device by using the value of the "deviceID" and modifies it context
+*a good practice would be to use as deviceID the semantic url of the device e.g.Device/1_1
+***************************************************************************************
+Functionality: 	Delete device
+Url: 			http://localhost:8081/api/devices/{device_id}
+Method:			DELETE
+***************************************************************************************
+***************************************************************************************
+***************************************************************************************
+***************************************************************************************
+
+Functionality: 	Create deployment
+Url: 			http://localhost:8081/api/deployments
+Method:			POST
+Headers: 		Content-Type: application/json
+Body:			{
+					"id": "test_ds_1",
+					"context": "@prefix prov: <http://www.w3.org/ns/prov#>. @prefix ssn: <http://www.w3.org/ns/ssn/> . @prefix iot: <http://inter-iot.eu/GOIoTP#> . @prefix org: <http://www.w3.org/ns/org#> . @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>. @prefix sosa: <http://www.w3.org/ns/sosa/> . <Organization/1> a org:Organization ; rdfs:label “Municipality of Thessaloniki."@en . <Deployment/PX_HOME1> a ssn:Deployment ; prov:startedAtTime "2017-06-06"^^xsd:date ; iot:hasLocation "AREA[“Thessaloniki"]"^^http://www.opengis.net/ont/geosparql#wktLiteral prov:wasAssociatedWith <Organization/1> ; ssn:deployedOnPlatform <Platform/1> . <Platform/1> a sosa:Platform ; rdfs:label “Activage Platform GR 1"@en ; sosa:hosts <Device/1_1> ; sosa:hosts <Device/1_2>"
+				}
+				
+*The context field should contain the semantic description of the deployment site
+***************************************************************************************
+Functionality: 	List all deployments
+Url: 			http://localhost:8081/api/deployments
+Method:			GET
+***************************************************************************************
+Functionality: 	Get deployment by id
+Url: 			http://localhost:8081/api/deployments/{deployment_id}
+Method:			GET
+***************************************************************************************
+Functionality: 	Update deployment
+Url: 			http://localhost:8081/api/deployments
+Method:			PUT
+Headers: 		Content-Type: application/json
+Body:			{
+					"id": "test_ds_1",
+					"context": "@prefix prov: <http://www.w3.org/ns/prov#>. @prefix ssn: <http://www.w3.org/ns/ssn/> . @prefix iot: <http://inter-iot.eu/GOIoTP#> . @prefix org: <http://www.w3.org/ns/org#> . @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>. @prefix sosa: <http://www.w3.org/ns/sosa/> . <Organization/1> a org:Organization ; rdfs:label “Municipality of Thessaloniki."@en . <Deployment/PX_HOME1> a ssn:Deployment ; prov:startedAtTime "2017-06-06"^^xsd:date ; iot:hasLocation "AREA[“Thessaloniki"]"^^http://www.opengis.net/ont/geosparql#wktLiteral prov:wasAssociatedWith <Organization/1> ; ssn:deployedOnPlatform <Platform/1> . <Platform/1> a sosa:Platform ; rdfs:label “Activage Platform GR 1"@en ; sosa:hosts <Device/1_1> ; sosa:hosts <Device/1_2>"
+				}
+*This service finds the deployment by using the value of the "id" and modifies it context
+***************************************************************************************
+Functionality: 	Delete device
+Url: 			http://localhost:8081/api/deployments/{deployment_id}
+Method:			DELETE
+***************************************************************************************

@@ -1,0 +1,608 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a the Activage Metadata Storage API.",
+    "version": "1.0.0",
+    "title": "Metadata Storage API"
+  },
+  "host": "localhost:8081",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Model",
+      "description": "Operations related to data analytics model"
+    },
+    {
+      "name": "Device",
+      "description": "Operations related to device instances"
+    },
+    {
+      "name": "Deployment",
+      "description": "Operations related to deployment installations"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/models": {
+      "get": {
+        "tags": [
+          "Model"
+        ],
+        "summary": "Get all available models",
+        "operationId": "getAllModels",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/models"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Model"
+        ],
+        "summary": "Create a new model",
+        "operationId": "createModel",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Model to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/modelNoId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "enum": [
+                    "The model was created successfully"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Model"
+        ],
+        "summary": "Update a model",
+        "operationId": "updateModel",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Model to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/modelNoId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/model"
+            }
+          }
+        }
+      }
+    },
+    "/models/{id}": {
+      "get": {
+        "tags": [
+          "Model"
+        ],
+        "summary": "Get model by id",
+        "operationId": "getModelByID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "minimum": 1,
+            "maximum": 1,
+            "description": "The model ID"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/model"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Model"
+        ],
+        "summary": "Delete model by id",
+        "operationId": "deleteModelByID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "minimum": 1,
+            "maximum": 1,
+            "description": "The model ID"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "enum": [
+                    "The model was deleted successfully"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devices": {
+      "get": {
+        "tags": [
+          "Device"
+        ],
+        "summary": "Get all available devices",
+        "operationId": "getAllDevices",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/devices"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Device"
+        ],
+        "summary": "Create a new device",
+        "operationId": "createDevice",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Device to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/deviceNoId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "enum": [
+                    "The device was created successfully"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Device"
+        ],
+        "summary": "Update a device",
+        "operationId": "updateDevice",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Device to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/modelNoId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/device"
+            }
+          }
+        }
+      }
+    },
+    "/devices/{id}": {
+      "get": {
+        "tags": [
+          "Device"
+        ],
+        "summary": "Get device by id",
+        "operationId": "getDeviceByID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "minimum": 1,
+            "maximum": 1,
+            "description": "The device ID"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/device"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Device"
+        ],
+        "summary": "Delete device by id",
+        "operationId": "deleteDeviceByID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "minimum": 1,
+            "maximum": 1,
+            "description": "The device ID"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "enum": [
+                    "The device was deleted successfully"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deployments": {
+      "get": {
+        "tags": [
+          "Deployment"
+        ],
+        "summary": "Get all available deployment installations",
+        "operationId": "getAllDeployments",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/deployments"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Deployment"
+        ],
+        "summary": "Create a new deployment installation",
+        "operationId": "createDeployment",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Deployment to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/deploymentNoId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "enum": [
+                    "The deployment was created successfully"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Deployment"
+        ],
+        "summary": "Update a deployment installation",
+        "operationId": "updateDeployment",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Deployment to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/deploymentNoId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/deployment"
+            }
+          }
+        }
+      }
+    },
+    "/deployments/{id}": {
+      "get": {
+        "tags": [
+          "Deployment"
+        ],
+        "summary": "Get deployment by id",
+        "operationId": "getDeploymentByID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "minimum": 1,
+            "maximum": 1,
+            "description": "The deployment ID"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/deployment"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Deployment"
+        ],
+        "summary": "Delete deployment by id",
+        "operationId": "deleteDeploymentByID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "minimum": 1,
+            "maximum": 1,
+            "description": "The deployment ID"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "enum": [
+                    "The deployment was deleted successfully"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "models": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/model"
+      }
+    },
+    "modelNoId": {
+      "type": "object",
+      "properties": {
+        "modelID": {
+          "type": "string"
+        },
+        "modelParams": {
+          "type": "object"
+        }
+      }
+    },
+    "model": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "modelID": {
+          "type": "string"
+        },
+        "modelParams": {
+          "type": "object"
+        }
+      }
+    },
+    "devices": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/device"
+      }
+    },
+    "deviceNoId": {
+      "type": "object",
+      "properties": {
+        "deviceID": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string",
+          "description": "The ontological representation of the device"
+        }
+      }
+    },
+    "device": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "deviceID": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string",
+          "description": "The ontological representation of the device"
+        }
+      }
+    },
+    "deployments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/deployment"
+      }
+    },
+    "deploymentNoId": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string",
+          "description": "The ontological representation of the deployment"
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string",
+          "description": "The ontological representation of the deployment"
+        }
+      }
+    }
+  }
+}

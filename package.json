@@ -1,0 +1,24 @@
+{
+  "name": "metadata_storage",
+  "version": "1.0.0",
+  "description": "Metadata storage server",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --exit",
+    "start": "node server.js"
+  },
+  "author": "Ilias Kalamaras",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.10",
+    "swagger-ui-express": "^4.0.3"
+  }
+}
