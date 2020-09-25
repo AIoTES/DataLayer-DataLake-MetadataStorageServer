@@ -26,4 +26,6 @@ The API provided by the metadata storage server is documented through swagger, w
 More details on the usage of the API can be found in the [Wiki]().
 
 
+## License
 
+Apache 2.0
