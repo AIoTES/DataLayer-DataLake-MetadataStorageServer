@@ -16,6 +16,10 @@ The Metadata Storage Server docker-compose includes a docker image of MongoDB an
 docker-compose up -d
 ```
 
+
+[Available Docker images](https://hub.docker.com/r/aiotesdocker/datalayer-datalake-metadatastorageserver)
+
+
 ## Configuration of the docker-compose
 The docker-compose provides a default configuration. To change it, access the docker-compose.yml file. By default the API will be deployed in the port 8081. Before deploying the application create the needed volume using the following command: docker volume create --name=mongodata
 
